@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/coffee -c -p --bare lib/gemnasiumClient.coffee > index.js",
-    "test": "node_modules/.bin/mocha -r should --compilers coffee:coffee-script/register test"
+    "test": "node_modules/.bin/mocha -r test/support/setup.coffee --compilers coffee:coffee-script/register test/lib"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "chai": "^2.3.0",
     "coffee-script": "^1.9.3",
     "mocha": "^2.2.5",
-    "should": "^6.0.3"
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0"
   }
 }
