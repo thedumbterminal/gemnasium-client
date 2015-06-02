@@ -6,6 +6,27 @@
 
 A wrapper for the gemnasium API
 
+## Usage
+
+(coffeescript)
+
+    GemnasiumClient = require 'gemnasium-client'
+    client = new GemnasiumClient
+    client.alerts (error, result) ->
+      throw error if error
+      console.log 'result:', result
+
+(javascript)
+
+    GemnasiumClient = require('gemnasium-client');
+    client = new GemnasiumClient;
+    client.alerts(function(error, result){
+      if(error){
+        throw error;
+      }
+      console.log('result:', result);
+    });
+
 ## Developing
 
 To compile JS:
