@@ -8,6 +8,11 @@ A wrapper for the gemnasium API
 
 ## Usage
 
+First set the correct environment variables, which can be found in the gemnasium account and project settings pages.
+
+    export GEMNASIUM_TOKEN=yourtoken
+    export GEMNASIUM_PROJECT_SLUG=yourprojectslug
+
 (coffeescript)
 
     GemnasiumClient = require 'gemnasium-client'
@@ -35,8 +40,4 @@ To compile JS:
 
 To run tests:
 
-First set the correct environment variables, which can be found in the gemnasium account and project settings pages.
-
-    export GEMNASIUM_TOKEN=yourtoken
-    export GEMNASIUM_PROJECT_SLUG=yourprojectslug
     npm test
