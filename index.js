@@ -19,7 +19,7 @@ GemnasiumClient = (function() {
     var options;
     options = {
       hostname: 'api.gemnasium.com',
-      path: "/v1/projects/aaaa" + this._slug + "/alerts",
+      path: "/v1/projects/" + this._slug + "/alerts",
       auth: "x:" + this._token
     };
     return https.get(options, function(res) {
