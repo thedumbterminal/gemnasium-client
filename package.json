@@ -1,6 +1,6 @@
 {
   "name": "gemnasium-client",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A wrapper for the gemnasium API",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,9 @@
   "bugs": {
     "url": "https://github.com/thedumbterminal/gemnasium-client/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.10.3"
+  },
   "devDependencies": {
     "chai": "^2.3.0",
     "coffee-script": "^1.9.3",
