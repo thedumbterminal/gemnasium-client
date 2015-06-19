@@ -2,7 +2,7 @@
 
 [![Dependency Status](https://gemnasium.com/thedumbterminal/gemnasium-client.svg)](https://gemnasium.com/thedumbterminal/gemnasium-client)
 
-[![Build Status](https://travis-ci.org/thedumbterminal/gemnasium-client.svg)](https://travis-ci.org/thedumbterminal/gemnasium-client.svg)
+[![Build Status](https://travis-ci.org/thedumbterminal/gemnasium-client.svg)](https://travis-ci.org/thedumbterminal/gemnasium-client)
 
 A wrapper for the gemnasium API
 
