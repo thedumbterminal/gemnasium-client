@@ -32,6 +32,24 @@ describe 'GemnasiumClient', ->
     it 'returns an array', ->
       result.should.be.an.Array
 
+  describe 'dependencies()', ->
+
+    error = null
+    result = null
+
+    before (done) ->
+      callback = sinon.spy()
+      instance.dependencies (err, res) ->
+        error = err
+        result = res
+        done()
+
+    it 'does not error', ->
+      (typeof error).should.eq 'undefined'
+
+    it 'returns an array', ->
+      result.should.be.an.Array
+
   describe '_handleResponse()', ->
 
     callback = null

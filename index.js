@@ -18,13 +18,15 @@ GemnasiumClient = (function() {
   }
 
   GemnasiumClient.prototype.alerts = function(cb) {
-    var options;
-    options = {
-      hostname: 'api.gemnasium.com',
-      path: "/v1/projects/" + this._slug + "/alerts",
-      auth: "x:" + this._token
-    };
-    return https.get(options, (function(_this) {
+    return this._request('alerts', cb);
+  };
+
+  GemnasiumClient.prototype.dependencies = function(cb) {
+    return this._request('dependencies', cb);
+  };
+
+  GemnasiumClient.prototype._request = function(action, cb) {
+    return https.get(this._options(action), (function(_this) {
       return function(res) {
         var body;
         body = '';
@@ -34,7 +36,7 @@ GemnasiumClient = (function() {
         });
         return res.on('end', function() {
           if (res.statusCode !== 200) {
-            return cb(new Error(parsed.message));
+            return cb(new Error(body));
           }
           return _this._handleResponse(body, cb);
         });
@@ -42,6 +44,14 @@ GemnasiumClient = (function() {
     })(this)).on('error', function(e) {
       return cb(e);
     });
+  };
+
+  GemnasiumClient.prototype._options = function(action) {
+    return {
+      hostname: 'api.gemnasium.com',
+      path: "/v1/projects/" + this._slug + "/" + action,
+      auth: "x:" + this._token
+    };
   };
 
   GemnasiumClient.prototype._handleResponse = function(body, cb) {

@@ -10,11 +10,13 @@ class GemnasiumClient
     throw new Error 'No GEMNASIUM_PROJECT_SLUG environment variable set' unless @_slug
 
   alerts: (cb) ->
-    options =
-      hostname: 'api.gemnasium.com'
-      path: "/v1/projects/#{@_slug}/alerts"
-      auth: "x:#{@_token}"
-    https.get(options, (res) =>
+    @_request 'alerts', cb
+
+  dependencies: (cb) ->
+    @_request 'dependencies', cb
+
+  _request: (action, cb) ->
+    https.get(@_options(action), (res) =>
       body = ''
       res.setEncoding 'utf8'
       res.on 'data', (chunk) ->
@@ -22,10 +24,15 @@ class GemnasiumClient
       res.on 'end', =>
         #deal with api errors
         if res.statusCode isnt 200
-          return cb new Error(parsed.message)
+          return cb new Error(body)
         this._handleResponse body, cb
     ).on 'error', (e) ->  #deal with transport errors
       cb e
+
+  _options: (action) ->
+    hostname: 'api.gemnasium.com'
+    path: "/v1/projects/#{@_slug}/#{action}"
+    auth: "x:#{@_token}"
 
   _handleResponse: (body, cb) ->
     parsed = null
