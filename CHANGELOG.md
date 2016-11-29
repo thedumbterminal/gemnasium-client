@@ -1,7 +1,8 @@
-# Next
+# 2.1.0
 
 * Upgraded dev dependencies.
 * Specify node v6 for CI.
+* Converted coffescript to JS.
 
 # 2.0.0
 

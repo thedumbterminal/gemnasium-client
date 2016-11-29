@@ -1,11 +1,10 @@
 {
   "name": "gemnasium-client",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A wrapper for the gemnasium API",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/coffee -c -p --bare lib/gemnasiumClient.coffee > index.js",
-    "test": "node_modules/.bin/mocha -r test/support/setup.js --compilers coffee:coffee-script/register test/lib"
+    "test": "node_modules/.bin/mocha -r test/support/setup.js test/lib"
   },
   "repository": {
     "type": "git",
@@ -24,7 +23,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coffee-script": "^1.9.3",
     "mocha": "^3.2.0",
     "sinon": "^1.14.1",
     "sinon-chai": "^2.8.0"
