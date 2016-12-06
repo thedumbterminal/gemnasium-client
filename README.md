@@ -16,7 +16,7 @@ First set the correct environment variables, which can be found in the gemnasium
     var GemnasiumClient = require('gemnasium-client');
     var client = new GemnasiumClient();
 
-### details
+### details()
 
 Retrieve details for the project.
 
@@ -24,7 +24,7 @@ Retrieve details for the project.
       console.log(error, result);
     });
 
-### alerts
+### alerts()
 
 Retrieve all security alerts for the project.
 
@@ -32,7 +32,7 @@ Retrieve all security alerts for the project.
       console.log(error, result);
     });
 
-### dependencies
+### dependencies()
 
 Retrieve all dependencies for the project.
 
@@ -40,13 +40,19 @@ Retrieve all dependencies for the project.
       console.log(error, result);
     });
 
-### dependencyFiles
+### dependencyFiles()
 
 Retrieve all the dependency files for the project.
 
     client.dependencyFiles(function(error, result){
       console.log(error, result);
     });
+
+## Example
+
+Run the following command to see a demo of the above methods:
+
+    node example/client.js
 
 ## Developing
 
