@@ -16,13 +16,35 @@ describe('GemnasiumClient', function(){
 
   });
 
+  describe('details()', function(){
+
+    let error;
+    let result;
+
+    before(function(done){
+      instance.details(function(err, res){
+        error = err;
+        result = res;
+        done();
+      });
+    });
+
+    it('does not error', function(){
+      (typeof error).should.eq('undefined');
+    });
+
+    it('returns an object', function(){
+      result.should.be.an.Object;
+    });
+
+  });
+
   describe('alerts()', function(){
 
     let error;
     let result;
 
     before(function(done){
-      let callback = sinon.spy();
       instance.alerts(function(err, res){
         error = err;
         result = res;
@@ -46,8 +68,30 @@ describe('GemnasiumClient', function(){
     let result;
 
     before(function(done){
-      let callback = sinon.spy();
       instance.dependencies(function(err, res){
+        error = err;
+        result = res;
+        done();
+      });
+    });
+
+    it('does not error', function(){
+      (typeof error).should.eq('undefined');
+    });
+
+    it('returns an array', function(){
+      result.should.be.an.Array;
+    });
+
+  });
+
+  describe('dependencyFiles()', function(){
+
+    let error;
+    let result;
+
+    before(function(done){
+      instance.dependencyFiles(function(err, res){
         error = err;
         result = res;
         done();
