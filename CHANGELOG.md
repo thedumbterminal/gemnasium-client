@@ -1,3 +1,7 @@
+# 2.2.0
+* Add new functionality: `details()`, `dependencies()` and `dependencyFiles()`.
+* Added example script.
+
 # 2.1.0
 
 * Upgraded dev dependencies.
